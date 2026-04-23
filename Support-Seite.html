@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DoseSimple – Support</title>
+    <meta name="description" content="DoseSimple – Deine Medikamente, einfach im Griff. Support, Datenschutz und Kontakt.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background: #f5f5f7;
+            color: #1d1d1f;
+            line-height: 1.7;
+        }
+
+        .lang-switch {
+            background: #fff;
+            border-bottom: 1px solid #e0e0e5;
+            padding: 12px 24px;
+            display: flex;
+            gap: 12px;
+            font-size: 14px;
+        }
+
+        .lang-switch a {
+            color: #0071e3;
+            text-decoration: none;
+            font-weight: 500;
+            cursor: pointer;
+        }
+
+        .lang-switch a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        .app-header {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 40px;
+            padding: 28px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+        }
+
+        .app-icon {
+            width: 72px;
+            height: 72px;
+            border-radius: 18px;
+            background: linear-gradient(135deg, #8bc4f5 0%, #9ee0c0 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 32px;
+            flex-shrink: 0;
+        }
+
+        .app-info h1 {
+            font-size: 24px;
+            font-weight: 700;
+            letter-spacing: -0.4px;
+        }
+
+        .app-info p {
+            font-size: 15px;
+            color: #6e6e73;
+            margin-top: 4px;
+        }
+
+        section {
+            background: white;
+            border-radius: 18px;
+            padding: 28px;
+            margin-bottom: 16px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 14px;
+            color: #1d1d1f;
+        }
+
+        p { font-size: 15px; color: #3a3a3c; margin-bottom: 10px; }
+        p:last-child { margin-bottom: 0; }
+
+        .intro-highlight {
+            background: linear-gradient(135deg, #e8f4fd 0%, #e8f8ef 100%);
+            border-radius: 12px;
+            padding: 18px 22px;
+            margin-top: 4px;
+            font-size: 16px;
+            color: #1d1d1f;
+            font-weight: 500;
+            line-height: 1.55;
+        }
+
+        .features {
+            list-style: none;
+            padding: 0;
+            margin-top: 8px;
+        }
+
+        .features li {
+            font-size: 15px;
+            color: #3a3a3c;
+            padding: 8px 0;
+            padding-left: 26px;
+            position: relative;
+        }
+
+        .features li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #34c759;
+            font-weight: 700;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #f0f7ff 0%, #f0fbf4 100%);
+        }
+
+        .contact-row {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 12px 0;
+        }
+
+        .contact-row:not(:last-child) {
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+
+        .contact-text {
+            flex: 1;
+            font-size: 14px;
+        }
+
+        .contact-text .label {
+            font-size: 12px;
+            color: #6e6e73;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .contact-text a {
+            color: #0071e3;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .contact-text a:hover { text-decoration: underline; }
+
+        .faq-item {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(0,0,0,0.06);
+        }
+
+        .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .faq-item:first-child { padding-top: 0; }
+
+        .faq-q {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1d1d1f;
+            margin-bottom: 6px;
+        }
+
+        .faq-a {
+            font-size: 14px;
+            color: #3a3a3c;
+            line-height: 1.6;
+        }
+
+        .legal-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .legal-links a {
+            color: #0071e3;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+        }
+
+        .legal-links a:hover { text-decoration: underline; }
+
+        .footer {
+            font-size: 13px;
+            color: #8e8e93;
+            text-align: center;
+            margin-top: 32px;
+        }
+
+        #en { display: none; }
+    </style>
+</head>
+<body>
+
+<div class="lang-switch">
+    <a onclick="showLang('de')">🇩🇪 Deutsch</a>
+    <a onclick="showLang('en')">🇬🇧 English</a>
+</div>
+
+<!-- DEUTSCH -->
+<div id="de">
+    <div class="container">
+
+        <div class="app-header">
+            <div class="app-icon">💊</div>
+            <div class="app-info">
+                <h1>DoseSimple</h1>
+                <p>Deine Medikamente. Einfach im Griff.</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="intro-highlight">
+                DoseSimple liest deinen Tag und zeigt dir immer genau den nächsten richtigen Schritt. Keine Listen, keine Kalender – nur das, was jetzt zählt.
+            </div>
+        </section>
+
+        <section>
+            <h2>Was DoseSimple kann</h2>
+            <ul class="features">
+                <li>Smarter Homescreen mit Tagesfokus und Fortschritt</li>
+                <li>Für Medikamente und Supplements – automatisch gewichtet</li>
+                <li>Apple Watch App mit bidirektionaler Synchronisation</li>
+                <li>Vollständiger Verlauf mit Streaks und Monatszielen</li>
+                <li>Nebenwirkungen dokumentieren</li>
+                <li>PDF-Export für das Arztgespräch</li>
+                <li>Zuverlässige Erinnerungen und Follow-ups</li>
+                <li>Alle Daten lokal auf deinem Gerät – kein Server, kein Tracking</li>
+            </ul>
+        </section>
+
+        <section class="contact-card">
+            <h2>Kontakt &amp; Support</h2>
+            <div class="contact-row">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-text">
+                    <div class="label">E-Mail</div>
+                    <a href="mailto:hello@dosesimple.app">hello@dosesimple.app</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="contact-icon">💬</div>
+                <div class="contact-text">
+                    <div class="label">Feedback &amp; Fragen</div>
+                    <a href="mailto:hello@dosesimple.app?subject=DoseSimple%20Feedback">Feedback per E-Mail senden</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="contact-icon">🐛</div>
+                <div class="contact-text">
+                    <div class="label">Fehler melden</div>
+                    <a href="mailto:hello@dosesimple.app?subject=DoseSimple%20Bug%20Report">Bug-Report per E-Mail</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Häufige Fragen</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">Werden meine Daten irgendwo gespeichert?</div>
+                <div class="faq-a">Nein. Alle deine Daten bleiben ausschließlich lokal auf deinem iPhone (und Apple Watch). DoseSimple sendet nichts an Server, sammelt keine Analytics und hat keine Werbung.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Was passiert wenn ich die App lösche?</div>
+                <div class="faq-a">Mit dem Löschen der App werden alle Daten unwiderruflich entfernt – außer du hast ein iCloud-Backup aktiviert. Ein Export als PDF vor der Deinstallation wird empfohlen.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Funktioniert die Apple Watch App offline?</div>
+                <div class="faq-a">Ja. Die Synchronisation läuft direkt zwischen iPhone und Watch über Apples WatchConnectivity – ohne Umweg über einen Server oder das Internet.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Wie kann ich meine Einnahmen exportieren?</div>
+                <div class="faq-a">Im Reiter „Mehr" findest du „PDF Export". Dort kannst du einen vollständigen Einnahmebericht erstellen – ideal für den nächsten Arzttermin.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Ersetzt DoseSimple einen Arzt?</div>
+                <div class="faq-a">Nein. DoseSimple ist ein Dokumentations-Tool für deine persönliche Medikamentenübersicht. Bei gesundheitlichen Fragen wende dich bitte immer an deinen Arzt oder Apotheker.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Rechtliches</h2>
+            <div class="legal-links">
+                <a href="datenschutz.html">Datenschutzerklärung</a>
+                <a href="nutzungsbedingungen.html">Nutzungsbedingungen</a>
+            </div>
+        </section>
+
+        <p class="footer">© 2026 DoseSimple · Stand: April 2026</p>
+
+    </div>
+</div>
+
+<!-- ENGLISH -->
+<div id="en">
+    <div class="container">
+
+        <div class="app-header">
+            <div class="app-icon">💊</div>
+            <div class="app-info">
+                <h1>DoseSimple</h1>
+                <p>Your medications. Simply under control.</p>
+            </div>
+        </div>
+
+        <section>
+            <div class="intro-highlight">
+                DoseSimple reads your day and always shows you the next right step. No lists, no calendars – just what matters right now.
+            </div>
+        </section>
+
+        <section>
+            <h2>What DoseSimple does</h2>
+            <ul class="features">
+                <li>Smart homescreen with daily focus and progress</li>
+                <li>For medications and supplements – automatically prioritized</li>
+                <li>Apple Watch app with two-way sync</li>
+                <li>Complete history with streaks and monthly goals</li>
+                <li>Document side effects</li>
+                <li>PDF export for doctor appointments</li>
+                <li>Reliable reminders and follow-ups</li>
+                <li>All data stays on your device – no server, no tracking</li>
+            </ul>
+        </section>
+
+        <section class="contact-card">
+            <h2>Contact &amp; Support</h2>
+            <div class="contact-row">
+                <div class="contact-icon">✉️</div>
+                <div class="contact-text">
+                    <div class="label">Email</div>
+                    <a href="mailto:hello@dosesimple.app">hello@dosesimple.app</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="contact-icon">💬</div>
+                <div class="contact-text">
+                    <div class="label">Feedback &amp; Questions</div>
+                    <a href="mailto:hello@dosesimple.app?subject=DoseSimple%20Feedback">Send feedback via email</a>
+                </div>
+            </div>
+            <div class="contact-row">
+                <div class="contact-icon">🐛</div>
+                <div class="contact-text">
+                    <div class="label">Report a bug</div>
+                    <a href="mailto:hello@dosesimple.app?subject=DoseSimple%20Bug%20Report">Send bug report via email</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Frequently Asked Questions</h2>
+
+            <div class="faq-item">
+                <div class="faq-q">Is my data stored anywhere?</div>
+                <div class="faq-a">No. All your data stays exclusively on your iPhone (and Apple Watch). DoseSimple doesn't send anything to servers, doesn't collect analytics, and has no ads.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">What happens when I delete the app?</div>
+                <div class="faq-a">Deleting the app permanently removes all data – unless you have iCloud backup enabled. A PDF export before uninstalling is recommended.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Does the Apple Watch app work offline?</div>
+                <div class="faq-a">Yes. Synchronization runs directly between iPhone and Watch via Apple's WatchConnectivity – no server or internet connection required.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">How do I export my medication history?</div>
+                <div class="faq-a">In the "More" tab, you'll find "PDF Export". There you can generate a complete intake report – ideal for your next doctor appointment.</div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-q">Does DoseSimple replace a doctor?</div>
+                <div class="faq-a">No. DoseSimple is a documentation tool for your personal medication overview. For health-related questions, always consult your doctor or pharmacist.</div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Legal</h2>
+            <div class="legal-links">
+                <a href="datenschutz.html">Privacy Policy</a>
+                <a href="nutzungsbedingungen.html">Terms of Use</a>
+            </div>
+        </section>
+
+        <p class="footer">© 2026 DoseSimple · Last updated: April 2026</p>
+
+    </div>
+</div>
+
+<script>
+function showLang(lang) {
+    document.getElementById('de').style.display = lang === 'de' ? 'block' : 'none';
+    document.getElementById('en').style.display = lang === 'en' ? 'block' : 'none';
+}
+</script>
+
+</body>
+</html>
